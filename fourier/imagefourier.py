@@ -2,9 +2,12 @@ import numpy as np
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 
+# Test File for Fourier Transform
+# Using MSE instead of Energy
+
 def get_image_difference(path1, path2):
-    image1_path = path1 #'./Images/Image1.png'
-    image2_path = path2 #'./Images/Image2.png'
+    image1_path = path1
+    image2_path = path2
 
     # read images to array
     image1 = mpimg.imread(image1_path)
@@ -25,19 +28,10 @@ def get_image_difference(path1, path2):
     # maybe for texture analysis?
     phase_difference = np.angle(fft1) - np.angle(fft2)
 
-
     # Mean Squared Error
     mse = np.mean(np.square(magnitude_difference))
     print(mse)
     input()
-
-    # visualize
-    #vis = magnitude_difference
-    #plt.imshow(np.log(1 + np.abs(vis)), cmap='gray')
-    #plt.colorbar()
-    #plt.title("Magnitude Difference")
-    #plt.show()
-
 
 if __name__ == "__main__":
     get_image_difference('./Images/Image1.png', './Images/Image2.png')
