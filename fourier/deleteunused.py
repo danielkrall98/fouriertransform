@@ -1,7 +1,8 @@
 import os
 import shutil
 
-# Delete all Images that are not in A from B
+# Delete all Images from B that are not in A
+# For balanced classification
 
 def get_file_names(folder):
     file_names = []
