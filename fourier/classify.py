@@ -12,7 +12,7 @@ from scipy.spatial import distance
 import sys
 
 PATH_REAL = './Images/Data_prepared/PLUS/genuine'
-PATH_FAKE = './Images/PLUSsynth' # './Images/PLUSsynth'
+PATH_FAKE = './Images/PLUSsynth'
 PATH_SORT = './Images/Data_prepared/PLUS/spoofed'
 
 class ImageFFT:
@@ -43,12 +43,12 @@ class ImageFFT:
     def calculate_average_energy(self):
         return sum(self.band_energies) / len(self.band_energies)
 
-
+# Get the Subject ID for Classification
+# HOW TO:
+# SCUT:  ID_finger_session_shot_light.bmp / ID identifies the subject
+# IDIAP: <size>/<source>/<subject-id>-<gender>/<subject-id>_<side>_<trial>
+# PLUS:  [scanner name]_[DORSAL/PALMAR]_[session ID]_[user ID]_[finger ID]_[image ID].png
 def get_subject_id(path, filename):
-    ### HOW TO FIND THE SUBJECT ID ###
-    # SCUT FVD: ID_finger_session_shot_light.bmp / ID identifies the subject
-    # IDIAP Vera FV: <size>/<source>/<subject-id>-<gender>/<subject-id>_<side>_<trial>
-    # PLUSVein-FV3: [scanner name]_[DORSAL/PALMAR]_[session ID]_[user ID]_[finger ID]_[image ID].png
     subject_id = filename
 
     if "SCUT" in path or "SCUT" in filename:
@@ -63,13 +63,13 @@ def get_subject_id(path, filename):
     elif "PLUS" in path or "PLUS" in filename:
         subject_id = filename.split("_")[3]
 
-
     return filename # TODO find subject based on path and which dataset is being used.
 
-
+# Calculate energy in a band
 def band_energy(img_fft):
     return np.sum(np.square(img_fft))
 
+# Apply the bandpass filter to an image
 def apply_bandpass_filter(image, low_cutoff, high_cutoff):
     rows, cols = image.shape
     center_x, center_y = rows // 2, cols // 2
@@ -88,6 +88,7 @@ def apply_bandpass_filter(image, low_cutoff, high_cutoff):
 
     return filtered_image
 
+# Calculate Fourier Transform (fft) (and resize image if needed)
 def get_usable_fft(path):
     img = io.imread(path) # load image
     # check if image is square
@@ -106,7 +107,7 @@ def convert_all_img_dir(path):
     out = []
     for root, dirs, files in os.walk(path):
         for filename in files:
-            if filename != ".DS_Store":
+            if filename != ".DS_Store": # hidden files on MACs
                 id = get_subject_id(root, filename)
                 img = get_usable_fft(os.path.join(root, filename))
                 out.append(ImageFFT(id, filename, img))
@@ -133,8 +134,6 @@ def calculate_energy_for_image(args):
             i += 1
             total_bands = len(images) * len(intervals)
             percentage = (i / total_bands) * 100
-            #print(f'\rProcessing {percentage:.2f}%...', end='', flush=True)
-            ###
         energy_list.append(bands)
     print("\n")
     return energy_list
@@ -142,7 +141,6 @@ def calculate_energy_for_image(args):
 
 def knn_sort(real, fake, sort, k=5, loso = False) -> bool:
     '''Sorts images into real or fake based on k nearest neighbors, returns true if real false if fake'''
-    # TODO change implementation to nearest neighbour instead of average
     band_count = 30
 
     # calculate bands and their energy for each image
@@ -152,7 +150,6 @@ def knn_sort(real, fake, sort, k=5, loso = False) -> bool:
         # progress bar
         print(f'\rProcessing {real.index(img) / len(real) * 100:.2f}%...', end='', flush=True)
 
-    
     print("real done")
     
     for img in fake:
@@ -229,7 +226,6 @@ def resize_image(img, img_width, img_height):
     cv2.resize(img, dsize=(img_width, img_height), interpolation=method)
 
 ### MAIN ###
-
 def main(path_real, path_fake, path_sort, k, loso):
     print("converting images")
     real, fake, sort = populate_initial(path_real, path_fake, path_sort)
@@ -252,11 +248,6 @@ def main(path_real, path_fake, path_sort, k, loso):
 
     with open("results.txt", "a") as f:
         f.write(output)
-
-    # TODO implement reversing the process, using the now sorted "sort images"
-    # for reference and instead sorting the real and fake images.
-    # how many real / fake images end up in the correct category will determine
-    # how good / consistent the algorithm is. 
 
 if __name__ == "__main__":
     print("start")
