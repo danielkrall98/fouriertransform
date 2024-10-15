@@ -1,6 +1,5 @@
 # PS Grundlagen Bildverarbeitung
-(Gruppe Fourier Transform)
-*Leon Andrassik, Daniel Krall*
+(Gruppe Fourier Transform): Leon Andrassik, Daniel Krall
 
 ### Notizen:
 Grundlagen Bildverarbeitung - Besprechungen
