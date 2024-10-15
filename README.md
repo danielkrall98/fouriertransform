@@ -1,4 +1,4 @@
-# Gruppe Fourier Transform
+# PS Grundlagen Bildverarbeitung (Gruppe Fourier Transform)
 *Leon Andrassik, Daniel Krall*
 
 ### Notizen:
