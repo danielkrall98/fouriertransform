@@ -1,6 +1,21 @@
 # PS Grundlagen Bildverarbeitung
 Gruppe Fourier Transform: Andrassik, Krall
 
+------------------------------------------------------------------------------------------------------
+
+### Beschreibung:
+Ein Classifier mit Bildern von Fingervenen soll verwendet werden, um zwischen echten, gefälschten und
+synthetisch-erstellten Bildern unterscheiden zu können.\
+Für die Baseline-Variante wird mit echten (genuine) und gefälschten (spoofed) Daten trainiert und nur
+zwischen diesen Unterschieden.
+Für das eigentliche Projekt werden die gefälschten Daten (spoofed) durch synthetisch-erstellte Daten
+(synthetic) ersetzt. Die synthetischen Daten sollen Dabei gefälschte Daten imitieren, ohne, dass die
+tatsächlichen gefälschten Daten umständlich per Hand erzeugt werden müssen.
+Dabei soll mit echten und synthetischen Daten trainiert und dann zwischen echten und gefälschten Daten
+unterschieden werden.
+
+------------------------------------------------------------------------------------------------------
+
 ### Besprechungen:
 
 ------------------------------------------------------------------------------------------------------
