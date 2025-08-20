@@ -10,7 +10,8 @@ Für die Baseline-Variante wird mit echten (genuine) und gefälschten (spoofed) 
 zwischen diesen Unterschieden.\
 Für das eigentliche Projekt werden die gefälschten Daten (spoofed) durch synthetisch-erstellte Daten
 (synthetic) ersetzt. Die synthetischen Daten sollen Dabei gefälschte Daten imitieren, ohne, dass die
-tatsächlichen gefälschten Daten umständlich per Hand erzeugt werden müssen.\
+tatsächlichen gefälschten Daten umständlich per Hand erzeugt werden müssen
+(einscannen, abfotografieren, etc.)\
 Dabei soll mit echten und synthetischen Daten trainiert und dann zwischen echten und gefälschten Daten
 unterschieden werden.
 
