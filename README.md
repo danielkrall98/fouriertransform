@@ -13,7 +13,8 @@ Für das eigentliche Projekt werden die gefälschten Daten (spoofed) durch synth
 tatsächlichen gefälschten Daten umständlich per Hand erzeugt werden müssen
 (einscannen, abfotografieren, etc.)\
 Dabei soll mit echten und synthetischen Daten trainiert und dann zwischen echten und gefälschten Daten
-unterschieden werden.\ <br>
+unterschieden werden.\
+<br>
 Leider hat das Projekt gezeigt, dass die Fourier-Transformation (aufgrund der enstehenden Artefakte) 
 für diese Klassifizierung nicht wirklich geeignet ist. <br>
 
