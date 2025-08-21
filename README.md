@@ -9,11 +9,15 @@ synthetisch-erstellten Bildern unterscheiden zu können.\
 Für die Baseline-Variante wird mit echten (genuine) und gefälschten (spoofed) Daten trainiert und nur
 zwischen diesen Unterschieden.\
 Für das eigentliche Projekt werden die gefälschten Daten (spoofed) durch synthetisch-erstellte Daten
-(synthetic) ersetzt. Die synthetischen Daten sollen Dabei gefälschte Daten imitieren, ohne, dass die
+(synthetic) ersetzt. Die synthetischen Daten sollen dabei gefälschte Daten imitieren, ohne, dass die
 tatsächlichen gefälschten Daten umständlich per Hand erzeugt werden müssen
 (einscannen, abfotografieren, etc.)\
 Dabei soll mit echten und synthetischen Daten trainiert und dann zwischen echten und gefälschten Daten
-unterschieden werden.
+unterschieden werden.\ <br>
+Leider hat das Projekt gezeigt, dass die Fourier-Transformation (aufgrund der enstehenden Artefakte) 
+für diese Klassifizierung nicht wirklich geeignet ist. <br>
+
+[Ergebnisse in der Präsentation]([https://link-url-here.org](https://github.com/danielkrall98/fouriertransform/blob/main/presentation/Presentation.pdf))
 
 ------------------------------------------------------------------------------------------------------
 
