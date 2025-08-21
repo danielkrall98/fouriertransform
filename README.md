@@ -18,7 +18,7 @@ unterschieden werden.\
 Leider hat das Projekt gezeigt, dass die Fourier-Transformation (aufgrund der enstehenden Artefakte) 
 für diese Klassifizierung nicht wirklich geeignet ist. <br>
 
-[Ergebnisse in der Präsentation]([https://link-url-here.org](https://github.com/danielkrall98/fouriertransform/blob/main/presentation/Presentation.pdf))
+[Ergebnisse in der Präsentation]((https://github.com/danielkrall98/fouriertransform/blob/main/presentation/Presentation.pdf))
 
 ------------------------------------------------------------------------------------------------------
 
